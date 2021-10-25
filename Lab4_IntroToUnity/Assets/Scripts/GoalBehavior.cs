@@ -6,6 +6,7 @@ public class GoalBehavior : MonoBehaviour
 {
     void OnCollisionEnter(Collision collision)
     {
-       //Put collision code here
+      //Put collision code here
+      Destroy(this.transform.gameObject);
     }
 }
