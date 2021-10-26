@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657737, g: 0.49641472, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657755, g: 0.49641502, b: 0.5748179, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1077,7 +1077,23 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 619d227b275534740930beeca615b7fa, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 8477569712650127979, guid: 7b8d65a95563e419da6690f52fa989f5,
+        type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477569712650127979, guid: 7b8d65a95563e419da6690f52fa989f5,
+        type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477569712650127979, guid: 7b8d65a95563e419da6690f52fa989f5,
+        type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1642282756330394842, guid: 7b8d65a95563e419da6690f52fa989f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7b8d65a95563e419da6690f52fa989f5, type: 3}
 --- !u!1 &1020967548
 GameObject:
@@ -1263,6 +1279,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_UseGravity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452373353052257775, guid: 3fca1fc8e739c43a0af37ed4deedac4d,
+        type: 3}
+      propertyPath: shrapnel
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5926534917857071860, guid: 3fca1fc8e739c43a0af37ed4deedac4d,
         type: 3}
@@ -1774,7 +1795,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 619d227b275534740930beeca615b7fa, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1642282756330394842, guid: 7b8d65a95563e419da6690f52fa989f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7b8d65a95563e419da6690f52fa989f5, type: 3}
 --- !u!1 &2058975208
 GameObject:
@@ -1909,5 +1931,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 619d227b275534740930beeca615b7fa, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 8477569712650127979, guid: 7b8d65a95563e419da6690f52fa989f5,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1642282756330394842, guid: 7b8d65a95563e419da6690f52fa989f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7b8d65a95563e419da6690f52fa989f5, type: 3}
