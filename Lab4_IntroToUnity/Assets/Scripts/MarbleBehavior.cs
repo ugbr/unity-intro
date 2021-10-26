@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MarbleBehavior : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 15f;
     public float rotateSpeed = 15f;
     
     private float fbInput;
@@ -35,6 +35,12 @@ public class MarbleBehavior : MonoBehaviour
         this.transform.forward * fbInput * Time.fixedDeltaTime);
       _rb.MoveRotation(_rb.rotation * angleRot);
         //Put code that moves the sprite using the RigidBody here
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+      //Put collision code here
+      _rb.freezeRotation = true;
     }
     
 }
