@@ -1,6 +1,6 @@
 Unity Intro
 
 Group:
-Justin Hudgins
-Josiah Aviles
+Justin Hudgins,
+Josiah Aviles,
 Uguudei Bayartsetseg
