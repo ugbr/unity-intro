@@ -20,6 +20,11 @@ public class MarbleBehavior : MonoBehaviour
     private SphereCollider _col;
     public GameBehavior gameManager;
 
+
+    /* for projectile */
+    public GameObject projectile;
+    public float launchVelocity = 10f;
+
     void Start()
     {
         //You'll need to add a rigidbody to the marble first
@@ -51,6 +56,13 @@ public class MarbleBehavior : MonoBehaviour
         this.transform.forward * fbInput * Time.fixedDeltaTime);
       _rb.MoveRotation(_rb.rotation * angleRot);
         //Put code that moves the sprite using the RigidBody here
+
+        /* for projectile */
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject bullet = Instantiate(projectile, transform.position+transform.forward, transform.rotation);
+            bullet.GetComponent<Rigidbody>().AddRelativeForce(new Vector3 (0,launchVelocity/4,launchVelocity));
+        }
     }
 
     void OnCollisionEnter(Collision collision)

@@ -19,6 +19,14 @@ public class BlastBehavior : MonoBehaviour
     {
         _rb.MovePosition(this.transform.position +
         this.transform.forward * 2 * Time.fixedDeltaTime);
+
+        StartCoroutine(passiveMe(3));
+ 
+        IEnumerator passiveMe(int secs)
+        {
+            yield return new WaitForSeconds(secs);
+            Destroy(gameObject);
+        }
     }
 
 
