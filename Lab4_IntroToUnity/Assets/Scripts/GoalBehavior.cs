@@ -13,16 +13,18 @@ public class GoalBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-      //Put collision code here
-      StartCoroutine (destroyGoal ());
+      if (collision.gameObject.tag == "Player")
+      {
+        Debug.Log("Goal collected!");
+        // 3
+        gameManager.Goals += 1;
+        StartCoroutine (destroyGoal ());
+      }
     }
 
     IEnumerator destroyGoal()
     {
       yield return new WaitForSeconds (0.5f);
       Destroy(this.transform.gameObject);
-      Debug.Log("Goal collected!");
-
-      gameManager.Goals += 1;
     }
 }
