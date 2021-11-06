@@ -26,7 +26,7 @@ public class ObstacleBehavior : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
       //Put collision code here
-      if (collision.gameObject.tag == "Blast")
+      if (collision.gameObject.name == "Blast(Clone)")
       {
         Debug.Log("Hit a Blast!");
         // 3
