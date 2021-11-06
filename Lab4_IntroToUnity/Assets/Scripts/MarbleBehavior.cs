@@ -18,6 +18,7 @@ public class MarbleBehavior : MonoBehaviour
     private Rigidbody _rb;
     
     private SphereCollider _col;
+    public GameBehavior gameManager;
 
     void Start()
     {
@@ -25,6 +26,8 @@ public class MarbleBehavior : MonoBehaviour
 //        _rb = GetComponent<Rigidbody>();
       _rb = GetComponent<Rigidbody>();
       _col = GetComponent<SphereCollider>();
+
+      gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
     }
 
     // Update is called once per frame
@@ -52,6 +55,12 @@ public class MarbleBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+      if (collision.gameObject.tag == "Obstacle")
+      {
+        Debug.Log("Hit an obstacle!");
+        // 3
+        gameManager.HP -= 5;
+      } 
       //Put collision code here
       _rb.freezeRotation = true;
     }

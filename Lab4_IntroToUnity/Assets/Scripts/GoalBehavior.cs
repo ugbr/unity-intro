@@ -4,11 +4,26 @@ using UnityEngine;
 
 public class GoalBehavior : MonoBehaviour
 {
+    public GameBehavior gameManager;
+
+    void Start()
+    {
+      // 2
+      gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
+    }
+
     void OnCollisionEnter(Collision collision)
     {
       //Put collision code here
-      StartCoroutine (destroyGoal ());
+      if (collision.gameObject.tag == "Player")
+      {
+        Debug.Log("Goal collected!");
+        // 3
+        gameManager.Goals += 1;
+        StartCoroutine (destroyGoal ());
+      }
     }
+      
 
     IEnumerator destroyGoal()
     {
