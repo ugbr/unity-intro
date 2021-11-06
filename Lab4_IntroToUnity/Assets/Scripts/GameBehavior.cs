@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameBehavior : MonoBehaviour
 {
     public string labelText = "Collect all 3 goals and pass!";
     public int maxGoals = 3;
+
+    public bool showWinScreen = false;
+    public bool showLoseScreen = false;
 
     private int _goalsCollected = 0;
 
@@ -19,6 +23,8 @@ public class GameBehavior : MonoBehaviour
             if (_goalsCollected >= maxGoals)
             {
                 labelText = "You've found all the goals!";
+                showWinScreen = true;
+                Time.timeScale = 0f;
             }
             else
             {
@@ -36,6 +42,13 @@ public class GameBehavior : MonoBehaviour
         set {
             _playerHP = value;
             Debug.LogFormat("Lives: {0}", _playerHP);
+
+            if (_playerHP <= 0)
+            {
+                labelText = "You've died :(";
+                showLoseScreen = true;
+                Time.timeScale = 0f;
+            }
         }
     }
 
@@ -45,17 +58,23 @@ public class GameBehavior : MonoBehaviour
         GUI.Box(new Rect(20, 50, 150, 25), "Items Collected: " + _goalsCollected);
         GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height - 50, 300, 50),
             labelText);
+        if (showWinScreen)
+        {
+            if (GUI.Button(new Rect(Screen.width/2 - 100,
+            Screen.height/2 - 50, 200, 100), "YOU WON!" ))
+            {
+                SceneManager.LoadScene(0);
+                Time.timeScale = 1.0f;
+            }
+        }
+        if (showLoseScreen)
+        {
+            if (GUI.Button(new Rect(Screen.width/2 - 100,
+            Screen.height/2 - 50, 200, 100), "You LOST!"))
+            {
+                SceneManager.LoadScene(0);
+                Time.timeScale =1.0f;
+            }
+        }
     }
 }
-
-    /*// Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }*/
